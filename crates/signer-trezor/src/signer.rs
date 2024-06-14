@@ -208,6 +208,7 @@ impl TrezorSigner {
                 })
                 .collect();
 
+            println!("Signing EIP1559 transaction...");
             client.ethereum_sign_eip1559_tx(
                 path,
                 nonce,
@@ -221,6 +222,8 @@ impl TrezorSigner {
                 access_list,
             )
         } else {
+            // Print debug enter sign legacy tx
+            println!("Signing legacy transaction...");
             client.ethereum_sign_tx(path, nonce, gas_price, gas_limit, to, value, data, chain_id)
         }?;
         signature_from_trezor(signature)
