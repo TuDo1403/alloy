@@ -97,6 +97,7 @@ impl TrezorSigner {
         };
         signer.initiate_session()?;
         signer.address = signer.get_address_with_path(&derivation).await?;
+        println!("[TuDo1403] Trezor signer initialized with address: {:?}", signer.address);
         Ok(signer)
     }
 
