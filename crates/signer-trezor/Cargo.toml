@@ -20,7 +20,7 @@ alloy-network.workspace = true
 alloy-primitives.workspace = true
 alloy-signer.workspace = true
 
-trezor-client = { git = "https://github.com/TuDo1403/trezor-firmware", rev = "f2eaf15", default-features = false, features = [
+trezor-client = { git = "https://github.com/TuDo1403/trezor-client", rev = "1b3b856", default-features = false, features = [
     "ethereum",
 ] }
 
