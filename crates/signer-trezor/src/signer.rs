@@ -77,6 +77,7 @@ impl alloy_network::TxSigner<Signature> for TrezorSigner {
         &self,
         tx: &mut dyn SignableTransaction<Signature>,
     ) -> Result<Signature> {
+        println!("[TuDo1403] Sender address: {:?}", self.address);
         sign_transaction_with_chain_id!(self, tx, self.sign_tx_inner(tx).await)
     }
 }
@@ -223,7 +224,8 @@ impl TrezorSigner {
             )
         } else {
             // Print debug enter sign legacy tx
-            println!("Signing legacy transaction...");
+            println!("[TuDo1403] Signing legacy transaction...");
+            println!("[TuDo1403] HD Path: {:?}", path);
             client.ethereum_sign_tx(path, nonce, gas_price, gas_limit, to, value, data, chain_id)
         }?;
         signature_from_trezor(signature)
